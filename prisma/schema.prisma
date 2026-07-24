@@ -1,0 +1,31 @@
+// Prisma schema for Al-Jawad Restaurant menu
+// Datasource: local SQLite file (dev.db), zero external setup required.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  order Int    @default(0)
+
+  items MenuItem[]
+}
+
+model MenuItem {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  imageUrl    String
+  isAvailable Boolean @default(true)
+
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int
+}
