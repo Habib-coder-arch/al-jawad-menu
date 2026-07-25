@@ -1,0 +1,94 @@
+{
+  "node": {
+    "4c5ae87714d37458449bfdc65c30bad8cb2b501a": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc"
+      }
+    },
+    "b1cf510e0ab20a085760b88f7650c88018150cec": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc"
+      }
+    },
+    "cbe51aa4ab3127186f50d12b0638a568b1cd556b": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc"
+      }
+    },
+    "e598d00d69218544b9df6a63b1d14ceb848c379d": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc"
+      }
+    },
+    "fc62506e9d492502daca387155d8a93aa995c474": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc"
+      }
+    },
+    "64997c7ce4133eeb0e256be4c333a38d0ef732ae": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc",
+        "app/admin/login/page": "rsc"
+      }
+    },
+    "993aa846e5549661dcbd240ac52d92820e80fea0": {
+      "workers": {
+        "app/admin/(dashboard)/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/new/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/(dashboard)/items/[id]/edit/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5C(dashboard)%5C%5Cactions.js%22%2C%5B%22deleteItem%22%2C%22deleteCategory%22%2C%22createItem%22%2C%22createCategory%22%2C%22updateItem%22%5D%5D%2C%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!",
+        "app/admin/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5Cdev%5C%5Cal-jawad-menu%5C%5Capp%5C%5Cadmin%5C%5Clogin%5C%5Cactions.js%22%2C%5B%22login%22%2C%22logout%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/admin/(dashboard)/page": "rsc",
+        "app/admin/(dashboard)/items/new/page": "rsc",
+        "app/admin/(dashboard)/items/[id]/edit/page": "rsc",
+        "app/admin/login/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "63qWHsg4C7zZSdyOwyRnnTwNETZ+i0PLZulZ7LORoPs="
+}

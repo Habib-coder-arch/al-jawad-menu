@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1b140f;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(193, 67, 46, 0.16), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(232, 163, 61, 0.08), transparent);
+  background-attachment: fixed;
+}
+
+/* Hide scrollbar for the category pill rail, keep it functional */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll snapping for the horizontal category rail */
+.pill-rail {
+  scroll-snap-type: x proximity;
+}
+.pill-rail > * {
+  scroll-snap-align: start;
+}
+
+/* Signature: scalloped "plate" price tag — a coin-like rim of small notches,
+   echoing the edge of a mezze plate. Built with a repeating radial-gradient mask. */
+.plate-price {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #f2c169 0%, #e8a33d 62%, #c7852a 100%);
+  -webkit-mask-image: radial-gradient(
+      circle at 50% 50%,
+      #000 0 61%,
+      transparent 61.2%
+    ),
+    repeating-conic-gradient(
+      #000 0deg 14deg,
+      transparent 14deg 18deg
+    );
+  -webkit-mask-composite: source-over;
+  mask-image: radial-gradient(circle at 50% 50%, #000 0 61%, transparent 61.2%),
+    repeating-conic-gradient(#000 0deg 14deg, transparent 14deg 18deg);
+  mask-composite: add;
+}
+
+/* Fallback plain circle if conic-gradient mask isn't supported */
+@supports not (mask-image: repeating-conic-gradient(#000 0deg, #000 1deg)) {
+  .plate-price {
+    -webkit-mask-image: none;
+    mask-image: none;
+    border-radius: 9999px;
+  }
+}
+
+/* Active category underline: a small flame-tip triangle */
+.pill-active-tip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
