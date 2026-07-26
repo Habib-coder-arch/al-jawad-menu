@@ -7,10 +7,13 @@ html {
 }
 
 body {
-  background-color: #1b140f;
+  background-color: #241a12;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(193, 67, 46, 0.16), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(232, 163, 61, 0.08), transparent);
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(232, 163, 61, 0.22), transparent),
+    radial-gradient(ellipse 70% 45% at 100% 10%, rgba(193, 67, 46, 0.16), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 60%, rgba(232, 163, 61, 0.09), transparent),
+    radial-gradient(rgba(246, 236, 224, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, auto, 22px 22px;
   background-attachment: fixed;
 }
 
@@ -31,33 +34,34 @@ body {
   scroll-snap-align: start;
 }
 
-/* Signature: scalloped "plate" price tag — a coin-like rim of small notches,
-   echoing the edge of a mezze plate. Built with a repeating radial-gradient mask. */
-.plate-price {
+/* Soft edge fades on the pill rail, hinting there's more to scroll */
+.pill-rail-fade {
   position: relative;
-  background: radial-gradient(circle at 50% 50%, #f2c169 0%, #e8a33d 62%, #c7852a 100%);
-  -webkit-mask-image: radial-gradient(
-      circle at 50% 50%,
-      #000 0 61%,
-      transparent 61.2%
-    ),
-    repeating-conic-gradient(
-      #000 0deg 14deg,
-      transparent 14deg 18deg
-    );
-  -webkit-mask-composite: source-over;
-  mask-image: radial-gradient(circle at 50% 50%, #000 0 61%, transparent 61.2%),
-    repeating-conic-gradient(#000 0deg 14deg, transparent 14deg 18deg);
-  mask-composite: add;
+}
+.pill-rail-fade::before,
+.pill-rail-fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+.pill-rail-fade::before {
+  right: 0;
+  background: linear-gradient(to left, rgba(27, 20, 15, 0.95), transparent);
+}
+.pill-rail-fade::after {
+  left: 0;
+  background: linear-gradient(to right, rgba(27, 20, 15, 0.95), transparent);
 }
 
-/* Fallback plain circle if conic-gradient mask isn't supported */
-@supports not (mask-image: repeating-conic-gradient(#000 0deg, #000 1deg)) {
-  .plate-price {
-    -webkit-mask-image: none;
-    mask-image: none;
-    border-radius: 9999px;
-  }
+/* Fixed-width price column divider — a thin dashed rule that stays in the
+   same position on every card, so prices line up vertically down the page
+   regardless of how long each dish name or description is. */
+.price-rail {
+  border-inline-start: 1px dashed rgba(232, 163, 61, 0.25);
 }
 
 /* Active category underline: a small flame-tip triangle */

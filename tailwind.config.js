@@ -19,10 +19,10 @@ module.exports = {
           light: "#F2C169",
         },
         char: {
-          DEFAULT: "#1B140F", // deep espresso charcoal — page background
-          soft: "#241A13",   // surface / card background
-          softer: "#2E2118", // elevated surface (hover, sticky bars)
-          line: "#3B2A1E",   // hairline dividers
+          DEFAULT: "#241A12", // warm espresso charcoal — page background (lightened)
+          soft: "#2E2119",   // surface / card background
+          softer: "#3A2A1E", // elevated surface (hover, sticky bars)
+          line: "#4A3626",   // hairline dividers
         },
         cream: {
           DEFAULT: "#F6ECE0", // primary text on dark

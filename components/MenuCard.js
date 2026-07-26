@@ -1,8 +1,10 @@
 import { CURRENCY } from "@/lib/constants";
 
 export default function MenuCard({ item }) {
+  const [whole, cents = "00"] = item.price.toFixed(2).split(".");
+
   return (
-    <article className="group flex gap-4 rounded-2xl border border-char-line bg-char-soft p-3 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-ember/40 hover:shadow-lg sm:p-4">
+    <article className="group flex items-center gap-3 rounded-2xl border border-char-line bg-char-soft p-3 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-ember/40 hover:shadow-lg sm:gap-4 sm:p-4">
       <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl ring-1 ring-saffron/15 sm:h-28 sm:w-28">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -15,26 +17,22 @@ export default function MenuCard({ item }) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center">
-        <div className="flex items-center gap-1">
-          <h3 className="truncate font-display text-base font-bold text-cream sm:text-lg">
-            {item.name}
-          </h3>
-
-          {/* Classic printed-menu dot leader */}
-          <span className="leader-dots" />
-
-          {/* Signature scalloped "plate" price tag */}
-          <div className="plate-price flex h-14 w-14 flex-shrink-0 items-center justify-center text-char shadow-[0_0_0_3px_rgba(27,20,15,0.4)]">
-            <span className="font-display text-sm font-extrabold leading-none">
-              {CURRENCY}
-              {item.price.toFixed(2)}
-            </span>
-          </div>
-        </div>
-
-        <p className="mt-1.5 line-clamp-2 font-body text-xs italic leading-relaxed text-cream-muted sm:text-sm">
+        <h3 className="truncate font-display text-base font-bold text-cream sm:text-lg">
+          {item.name}
+        </h3>
+        <p className="mt-1 line-clamp-2 font-body text-xs italic leading-relaxed text-cream-muted sm:text-sm">
           {item.description}
         </p>
+      </div>
+
+      {/* Fine-dining style price: big integer, smaller currency/decimals,
+          sitting in a fixed-width column so every price on the page aligns. */}
+      <div className="price-rail flex w-16 flex-shrink-0 items-center justify-center py-1 ps-2.5 sm:w-20">
+        <span className="font-display font-extrabold leading-none text-saffron">
+          <span className="align-top text-[11px] sm:text-xs">{CURRENCY}</span>
+          <span className="text-xl sm:text-2xl">{whole}</span>
+          <span className="align-top text-[11px] sm:text-xs">.{cents}</span>
+        </span>
       </div>
     </article>
   );
