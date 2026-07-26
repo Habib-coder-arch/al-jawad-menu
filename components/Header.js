@@ -25,7 +25,7 @@ export default function Header() {
           </a>
           <span className="flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5 text-saffron" strokeWidth={2.25} />
-             الغربي البقاع يحمر
+            يحمر البقاع الغربي  
           </span>
         </div>
       </div>
