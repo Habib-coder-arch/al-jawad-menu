@@ -1,7 +1,7 @@
-import { CURRENCY } from "@/lib/constants";
+import { CURRENCY, LBP_RATE } from "@/lib/constants";
 
 export default function MenuCard({ item }) {
-  const [whole, cents = "00"] = item.price.toFixed(2).split(".");
+  const lbpPrice = Math.round(item.price * LBP_RATE).toLocaleString("en-US");
 
   return (
     <article className="group flex items-center gap-3 rounded-2xl border border-char-line bg-char-soft p-3 shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:border-ember/40 hover:shadow-lg sm:gap-4 sm:p-4">
@@ -25,13 +25,14 @@ export default function MenuCard({ item }) {
         </p>
       </div>
 
-      {/* Fine-dining style price: big integer, smaller currency/decimals,
-          sitting in a fixed-width column so every price on the page aligns. */}
-      <div className="price-rail flex w-16 flex-shrink-0 items-center justify-center py-1 ps-2.5 sm:w-20">
-        <span className="font-display font-extrabold leading-none text-saffron">
-          <span className="align-top text-[11px] sm:text-xs">{CURRENCY}</span>
-          <span className="text-xl sm:text-2xl">{whole}</span>
-          <span className="align-top text-[11px] sm:text-xs">.{cents}</span>
+      {/* Fixed-width price column: same width on every card, so both the
+          USD and LBP prices line up vertically down the whole page. */}
+      <div className="price-rail flex w-24 flex-shrink-0 flex-col items-center justify-center gap-0.5 py-1 ps-2.5 text-center sm:w-28">
+        <span dir="ltr" className="font-display text-lg font-extrabold leading-none text-saffron sm:text-xl">
+          {CURRENCY}{item.price.toFixed(2)}
+        </span>
+        <span className="whitespace-nowrap font-body text-[10px] leading-tight text-cream-muted sm:text-[11px]">
+          <span dir="ltr">{lbpPrice}</span> ل.ل
         </span>
       </div>
     </article>
