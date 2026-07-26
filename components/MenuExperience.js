@@ -8,6 +8,7 @@ import {
   IceCreamCone,
 } from "lucide-react";
 import MenuCard from "./MenuCard";
+import Ornament from "./Ornament";
 
 // Category model has no icon field in the DB — cycle through a small icon
 // pool by position so every pill still gets a friendly glyph.
@@ -89,65 +90,74 @@ export default function MenuExperience({ categories }) {
     <div>
       {/* Sticky category pill rail */}
       <nav className="sticky top-0 z-20 border-b border-char-line bg-char/95 backdrop-blur">
-        <div
-          className="no-scrollbar pill-rail mx-auto flex max-w-3xl gap-2 overflow-x-auto px-4 py-3"
-          role="tablist"
-          aria-label="فئات القائمة"
-        >
-          {categories.map((cat, index) => {
-            const Icon = ICON_POOL[index % ICON_POOL.length];
-            const isActive = activeId === cat.id;
-            return (
-              <button
-                key={cat.id}
-                ref={(el) => (pillRefs.current[cat.id] = el)}
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => handlePillClick(cat.id)}
-                className={`relative flex flex-shrink-0 items-center gap-1.5 rounded-full px-4 py-2 font-body text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "pill-active-tip bg-ember text-cream shadow-pill"
-                    : "bg-char-soft text-cream-muted hover:bg-char-softer hover:text-cream"
-                }`}
-              >
-                <Icon className="h-4 w-4" strokeWidth={2.25} />
-                {cat.name}
-              </button>
-            );
-          })}
+        <div className="pill-rail-fade mx-auto max-w-3xl">
+          <div
+            className="no-scrollbar pill-rail flex gap-2 overflow-x-auto px-4 py-3"
+            role="tablist"
+            aria-label="فئات القائمة"
+          >
+            {categories.map((cat, index) => {
+              const Icon = ICON_POOL[index % ICON_POOL.length];
+              const isActive = activeId === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  ref={(el) => (pillRefs.current[cat.id] = el)}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => handlePillClick(cat.id)}
+                  className={`relative flex flex-shrink-0 items-center gap-1.5 rounded-full px-4 py-2 font-body text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? "pill-active-tip bg-ember text-cream shadow-pill"
+                      : "bg-char-soft text-cream-muted hover:bg-char-softer hover:text-cream"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" strokeWidth={2.25} />
+                  {cat.name}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </nav>
 
       {/* Menu sections */}
       <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
-        {categories.map((cat) => (
-          <section
-            key={cat.id}
-            id={`cat-${cat.id}`}
-            data-category-id={cat.id}
-            ref={(el) => (sectionRefs.current[cat.id] = el)}
-            className="mb-10 scroll-mt-16"
-          >
-            <div className="mb-4 flex items-baseline gap-3">
-              <h2 className="font-display text-xl font-extrabold text-cream sm:text-2xl">
-                {cat.name}
-              </h2>
-              <div className="h-px flex-1 bg-char-line" />
-            </div>
+        {categories.map((cat, index) => {
+          const Icon = ICON_POOL[index % ICON_POOL.length];
+          return (
+            <section
+              key={cat.id}
+              id={`cat-${cat.id}`}
+              data-category-id={cat.id}
+              ref={(el) => (sectionRefs.current[cat.id] = el)}
+              className="mb-10 scroll-mt-16"
+            >
+              {index > 0 && <Ornament className="mb-8" />}
 
-            {cat.items.length === 0 ? (
-              <p className="font-body text-sm text-cream-muted">
-                لا توجد أصناف متاحة في هذا القسم حالياً.
-              </p>
-            ) : (
-              <div className="flex flex-col gap-3 sm:gap-4">
-                {cat.items.map((item) => (
-                  <MenuCard key={item.id} item={item} />
-                ))}
+              <div className="mb-4 flex items-center gap-2.5">
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-saffron/10 text-saffron ring-1 ring-saffron/25">
+                  <Icon className="h-4 w-4" strokeWidth={2.25} />
+                </span>
+                <h2 className="font-display text-xl font-extrabold tracking-tight text-cream sm:text-2xl">
+                  {cat.name}
+                </h2>
               </div>
-            )}
-          </section>
-        ))}
+
+              {cat.items.length === 0 ? (
+                <p className="font-body text-sm text-cream-muted">
+                  لا توجد أصناف متاحة في هذا القسم حالياً.
+                </p>
+              ) : (
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  {cat.items.map((item) => (
+                    <MenuCard key={item.id} item={item} />
+                  ))}
+                </div>
+              )}
+            </section>
+          );
+        })}
       </div>
     </div>
   );

@@ -10,7 +10,9 @@ body {
   background-color: #1b140f;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(193, 67, 46, 0.16), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(232, 163, 61, 0.08), transparent);
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(232, 163, 61, 0.08), transparent),
+    radial-gradient(rgba(246, 236, 224, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 22px 22px;
   background-attachment: fixed;
 }
 
@@ -29,6 +31,39 @@ body {
 }
 .pill-rail > * {
   scroll-snap-align: start;
+}
+
+/* Soft edge fades on the pill rail, hinting there's more to scroll */
+.pill-rail-fade {
+  position: relative;
+}
+.pill-rail-fade::before,
+.pill-rail-fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+.pill-rail-fade::before {
+  right: 0;
+  background: linear-gradient(to left, rgba(27, 20, 15, 0.95), transparent);
+}
+.pill-rail-fade::after {
+  left: 0;
+  background: linear-gradient(to right, rgba(27, 20, 15, 0.95), transparent);
+}
+
+/* Classic printed-menu "dot leader" connecting a dish name to its price */
+.leader-dots {
+  flex: 1 1 auto;
+  min-width: 16px;
+  align-self: center;
+  border-bottom: 2px dotted rgba(201, 184, 168, 0.3);
+  margin: 0 2px;
+  transform: translateY(-3px);
 }
 
 /* Signature: scalloped "plate" price tag — a coin-like rim of small notches,
