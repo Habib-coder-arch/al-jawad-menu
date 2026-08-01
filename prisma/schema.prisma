@@ -1,5 +1,6 @@
 // Prisma schema for Al-Jawad Restaurant menu
-// Datasource: local SQLite file (dev.db), zero external setup required.
+// Datasource: PostgreSQL (Supabase). url = pooled connection (app runtime),
+// directUrl = direct connection (used only by `prisma migrate`).
 
 generator client {
   provider = "prisma-client-js"
@@ -24,7 +25,7 @@ model MenuItem {
   name        String
   description String
   price       Float
-  imageUrl    String
+  imageUrl    String?
   isAvailable Boolean @default(true)
 
   category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)

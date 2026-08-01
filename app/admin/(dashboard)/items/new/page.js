@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Field, inputClass } from "@/components/admin/form-ui";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 import { createItem } from "../../actions";
 
 export const dynamic = "force-dynamic";
@@ -13,6 +14,7 @@ export const metadata = {
 export default async function NewItemPage({ searchParams }) {
   const categories = await prisma.category.findMany({ orderBy: { order: "asc" } });
   const hasError = searchParams?.error === "1";
+  const hasUploadError = searchParams?.error === "upload";
 
   return (
     <div className="mx-auto max-w-lg">
@@ -33,6 +35,11 @@ export default async function NewItemPage({ searchParams }) {
           يرجى تعبئة جميع الحقول المطلوبة بشكل صحيح.
         </p>
       )}
+      {hasUploadError && (
+        <p className="mb-4 rounded-lg border border-red-900/40 bg-red-950/20 px-3 py-2 font-body text-xs text-red-400">
+          تعذّر رفع الصورة، حاول مرة أخرى.
+        </p>
+      )}
 
       {categories.length === 0 ? (
         <p className="rounded-xl border border-char-line bg-char-soft p-5 font-body text-sm text-cream-muted">
@@ -43,6 +50,8 @@ export default async function NewItemPage({ searchParams }) {
           action={createItem}
           className="flex flex-col gap-4 rounded-2xl border border-char-line bg-char-soft p-5"
         >
+          <ImageUploadField name="image" />
+
           <Field label="اسم الصنف">
             <input
               type="text"
@@ -94,16 +103,6 @@ export default async function NewItemPage({ searchParams }) {
               </select>
             </Field>
           </div>
-
-          <Field label="رابط الصورة">
-            <input
-              type="url"
-              name="imageUrl"
-              required
-              className={inputClass}
-              placeholder="https://..."
-            />
-          </Field>
 
           <label className="flex items-center gap-2 font-body text-sm text-cream">
             <input

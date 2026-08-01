@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
+import { uploadMenuImage } from "@/lib/supabase-admin";
 
 function refreshMenuPages() {
   revalidatePath("/admin");
@@ -18,12 +19,24 @@ export async function createItem(formData) {
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
   const price = parseFloat(formData.get("price"));
-  const imageUrl = formData.get("imageUrl")?.toString().trim();
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
+  const imageFile = formData.get("image");
 
-  if (!name || !description || !imageUrl || !categoryId || Number.isNaN(price)) {
+  if (!name || !description || !categoryId || Number.isNaN(price)) {
     redirect("/admin/items/new?error=1");
+  }
+
+  // Image is optional — only upload if the manager actually chose a file.
+  const hasImage = imageFile instanceof File && imageFile.size > 0;
+  let imageUrl = null;
+  if (hasImage) {
+    try {
+      imageUrl = await uploadMenuImage(imageFile);
+    } catch (err) {
+      console.error(err);
+      redirect("/admin/items/new?error=upload");
+    }
   }
 
   await prisma.menuItem.create({
@@ -41,17 +54,37 @@ export async function updateItem(formData) {
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
   const price = parseFloat(formData.get("price"));
-  const imageUrl = formData.get("imageUrl")?.toString().trim();
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
+  const imageFile = formData.get("image");
 
-  if (!id || !name || !description || !imageUrl || !categoryId || Number.isNaN(price)) {
+  if (!id || !name || !description || !categoryId || Number.isNaN(price)) {
     redirect(`/admin/items/${id}/edit?error=1`);
+  }
+
+  // Only upload (and overwrite imageUrl) if the manager actually picked a
+  // new file. Leaving the field untouched keeps the existing image.
+  const hasNewImage = imageFile instanceof File && imageFile.size > 0;
+  let imageUrl;
+  if (hasNewImage) {
+    try {
+      imageUrl = await uploadMenuImage(imageFile);
+    } catch (err) {
+      console.error(err);
+      redirect(`/admin/items/${id}/edit?error=upload`);
+    }
   }
 
   await prisma.menuItem.update({
     where: { id },
-    data: { name, description, price, imageUrl, categoryId, isAvailable },
+    data: {
+      name,
+      description,
+      price,
+      categoryId,
+      isAvailable,
+      ...(imageUrl ? { imageUrl } : {}),
+    },
   });
 
   refreshMenuPages();
@@ -93,9 +126,6 @@ export async function deleteCategory(formData) {
   const id = Number(formData.get("id"));
   if (!id) redirect("/admin");
 
-  // Schema has onDelete: Cascade on MenuItem.category, so this also removes
-  // every item that belonged to this category. The confirm dialog on the
-  // button warns about that before the form ever submits.
   await prisma.category.delete({ where: { id } });
 
   refreshMenuPages();

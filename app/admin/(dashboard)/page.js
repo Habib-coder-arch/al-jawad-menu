@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, Pencil } from "lucide-react";
+import { Plus, Pencil, ImageOff } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { CURRENCY } from "@/lib/constants";
 import ConfirmDeleteButton from "@/components/admin/ConfirmDeleteButton";
@@ -127,12 +127,7 @@ export default async function AdminDashboardPage() {
                     {cat.items.map((item) => (
                       <tr key={item.id} className="bg-char-soft/40">
                         <td className="px-4 py-3">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={item.imageUrl}
-                            alt={item.name}
-                            className="h-12 w-12 rounded-lg object-cover"
-                          />
+                          <ItemThumb imageUrl={item.imageUrl} name={item.name} size="h-12 w-12" />
                         </td>
                         <td className="max-w-xs px-4 py-3 font-body text-sm font-medium text-cream">
                           {item.name}
@@ -175,11 +170,10 @@ export default async function AdminDashboardPage() {
                     key={item.id}
                     className="flex items-center gap-3 rounded-xl border border-char-line bg-char-soft p-3"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.imageUrl}
-                      alt={item.name}
-                      className="h-14 w-14 flex-shrink-0 rounded-lg object-cover"
+                    <ItemThumb
+                      imageUrl={item.imageUrl}
+                      name={item.name}
+                      size="h-14 w-14"
                     />
                     <div className="min-w-0 flex-1">
                       <p className="truncate font-body text-sm font-semibold text-cream">
@@ -217,6 +211,27 @@ export default async function AdminDashboardPage() {
           )}
         </section>
       ))}
+    </div>
+  );
+}
+
+function ItemThumb({ imageUrl, name, size }) {
+  if (imageUrl) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={imageUrl}
+        alt={name}
+        className={`${size} flex-shrink-0 rounded-lg object-cover`}
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`${size} flex flex-shrink-0 items-center justify-center rounded-lg border border-dashed border-char-line bg-char text-cream-muted`}
+    >
+      <ImageOff className="h-4 w-4" strokeWidth={1.75} />
     </div>
   );
 }
