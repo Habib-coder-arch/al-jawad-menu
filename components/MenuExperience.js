@@ -149,7 +149,7 @@ export default function MenuExperience({ categories }) {
                   لا توجد أصناف متاحة في هذا القسم حالياً.
                 </p>
               ) : (
-                <div className="flex flex-col gap-3 sm:gap-4">
+                <div className="divide-y divide-char-line rounded-2xl border border-char-line bg-char-soft/40 px-4 shadow-card sm:px-5">
                   {cat.items.map((item) => (
                     <MenuCard key={item.id} item={item} />
                   ))}
