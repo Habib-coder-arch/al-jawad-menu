@@ -5,30 +5,25 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { uploadMenuImage } from "@/lib/supabase-admin";
-import { LBP_RATE } from "@/lib/constants";
 
 function refreshMenuPages() {
   revalidatePath("/admin");
   revalidatePath("/");
 }
 
-// ---------- Menu items ----------
-
 export async function createItem(formData) {
   await requireAdmin();
 
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
-  const priceLbp = parseFloat(formData.get("price"));
+  const price = Math.round(parseFloat(formData.get("price")));
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
   const imageFile = formData.get("image");
 
-  if (!name || !description || !categoryId || Number.isNaN(priceLbp)) {
+  if (!name || !description || !categoryId || Number.isNaN(price)) {
     redirect("/admin/items/new?error=1");
   }
-
-  const price = Math.round((priceLbp / LBP_RATE) * 100) / 100;
 
   const hasImage = imageFile instanceof File && imageFile.size > 0;
   let imageUrl = null;
@@ -55,16 +50,14 @@ export async function updateItem(formData) {
   const id = Number(formData.get("id"));
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
-  const priceLbp = parseFloat(formData.get("price"));
+  const price = Math.round(parseFloat(formData.get("price")));
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
   const imageFile = formData.get("image");
 
-  if (!id || !name || !description || !categoryId || Number.isNaN(priceLbp)) {
+  if (!id || !name || !description || !categoryId || Number.isNaN(price)) {
     redirect(`/admin/items/${id}/edit?error=1`);
   }
-
-  const price = Math.round((priceLbp / LBP_RATE) * 100) / 100;
 
   const hasNewImage = imageFile instanceof File && imageFile.size > 0;
   let imageUrl;
@@ -104,8 +97,6 @@ export async function deleteItem(formData) {
   refreshMenuPages();
   redirect("/admin");
 }
-
-// ---------- Categories ----------
 
 export async function createCategory(formData) {
   await requireAdmin();
