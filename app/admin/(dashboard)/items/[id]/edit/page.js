@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Field, inputClass } from "@/components/admin/form-ui";
 import ImageUploadField from "@/components/admin/ImageUploadField";
+import { LBP_RATE } from "@/lib/constants";
 import { updateItem } from "../../../actions";
 
 export const dynamic = "force-dynamic";
@@ -60,8 +61,8 @@ export default async function EditItemPage({ params, searchParams }) {
         </Field>
 
         <div className="grid grid-cols-2 gap-3">
-          <Field label="السعر ($)">
-            <input type="number" name="price" step="0.01" min="0" required defaultValue={item.price} className={inputClass} />
+          <Field label="السعر (ل.ل)">
+            <input type="number" name="price" step="1000" min="0" required dir="ltr" defaultValue={Math.round(item.price * LBP_RATE)} className={inputClass} />
           </Field>
 
           <Field label="القسم">

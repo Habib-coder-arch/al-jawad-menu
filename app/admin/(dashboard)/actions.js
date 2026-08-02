@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { uploadMenuImage } from "@/lib/supabase-admin";
+import { LBP_RATE } from "@/lib/constants";
 
 function refreshMenuPages() {
   revalidatePath("/admin");
@@ -18,16 +19,17 @@ export async function createItem(formData) {
 
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
-  const price = parseFloat(formData.get("price"));
+  const priceLbp = parseFloat(formData.get("price"));
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
   const imageFile = formData.get("image");
 
-  if (!name || !description || !categoryId || Number.isNaN(price)) {
+  if (!name || !description || !categoryId || Number.isNaN(priceLbp)) {
     redirect("/admin/items/new?error=1");
   }
 
-  // Image is optional — only upload if the manager actually chose a file.
+  const price = Math.round((priceLbp / LBP_RATE) * 100) / 100;
+
   const hasImage = imageFile instanceof File && imageFile.size > 0;
   let imageUrl = null;
   if (hasImage) {
@@ -53,17 +55,17 @@ export async function updateItem(formData) {
   const id = Number(formData.get("id"));
   const name = formData.get("name")?.toString().trim();
   const description = formData.get("description")?.toString().trim();
-  const price = parseFloat(formData.get("price"));
+  const priceLbp = parseFloat(formData.get("price"));
   const categoryId = Number(formData.get("categoryId"));
   const isAvailable = formData.get("isAvailable") === "on";
   const imageFile = formData.get("image");
 
-  if (!id || !name || !description || !categoryId || Number.isNaN(price)) {
+  if (!id || !name || !description || !categoryId || Number.isNaN(priceLbp)) {
     redirect(`/admin/items/${id}/edit?error=1`);
   }
 
-  // Only upload (and overwrite imageUrl) if the manager actually picked a
-  // new file. Leaving the field untouched keeps the existing image.
+  const price = Math.round((priceLbp / LBP_RATE) * 100) / 100;
+
   const hasNewImage = imageFile instanceof File && imageFile.size > 0;
   let imageUrl;
   if (hasNewImage) {

@@ -18,17 +18,12 @@ export default async function NewItemPage({ searchParams }) {
 
   return (
     <div className="mx-auto max-w-lg">
-      <Link
-        href="/admin"
-        className="mb-4 inline-flex items-center gap-1.5 font-body text-sm text-cream-muted transition-colors hover:text-cream"
-      >
+      <Link href="/admin" className="mb-4 inline-flex items-center gap-1.5 font-body text-sm text-cream-muted transition-colors hover:text-cream">
         <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
         العودة إلى لوحة التحكم
       </Link>
 
-      <h1 className="mb-6 font-display text-xl font-bold text-cream">
-        إضافة صنف جديد
-      </h1>
+      <h1 className="mb-6 font-display text-xl font-bold text-cream">إضافة صنف جديد</h1>
 
       {hasError && (
         <p className="mb-4 rounded-lg border border-red-900/40 bg-red-950/20 px-3 py-2 font-body text-xs text-red-400">
@@ -46,78 +41,38 @@ export default async function NewItemPage({ searchParams }) {
           يجب إضافة قسم واحد على الأقل من لوحة التحكم قبل إضافة أصناف.
         </p>
       ) : (
-        <form
-          action={createItem}
-          className="flex flex-col gap-4 rounded-2xl border border-char-line bg-char-soft p-5"
-        >
+        <form action={createItem} className="flex flex-col gap-4 rounded-2xl border border-char-line bg-char-soft p-5">
           <ImageUploadField name="image" />
 
           <Field label="اسم الصنف">
-            <input
-              type="text"
-              name="name"
-              required
-              className={inputClass}
-              placeholder="مثال: حمص بالطحينة"
-            />
+            <input type="text" name="name" required className={inputClass} placeholder="مثال: حمص بالطحينة" />
           </Field>
 
           <Field label="الوصف">
-            <textarea
-              name="description"
-              required
-              rows={3}
-              className={inputClass}
-              placeholder="وصف قصير وشهي للصنف"
-            />
+            <textarea name="description" required rows={3} className={inputClass} placeholder="وصف قصير وشهي للصنف" />
           </Field>
 
           <div className="grid grid-cols-2 gap-3">
-            <Field label="السعر ($)">
-              <input
-                type="number"
-                name="price"
-                step="0.01"
-                min="0"
-                required
-                className={inputClass}
-                placeholder="0.00"
-              />
+            <Field label="السعر (ل.ل)">
+              <input type="number" name="price" step="1000" min="0" required dir="ltr" className={inputClass} placeholder="مثال: 1602000" />
             </Field>
 
             <Field label="القسم">
-              <select
-                name="categoryId"
-                required
-                defaultValue=""
-                className={inputClass}
-              >
-                <option value="" disabled>
-                  اختر القسم
-                </option>
+              <select name="categoryId" required defaultValue="" className={inputClass}>
+                <option value="" disabled>اختر القسم</option>
                 {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
+                  <option key={cat.id} value={cat.id}>{cat.name}</option>
                 ))}
               </select>
             </Field>
           </div>
 
           <label className="flex items-center gap-2 font-body text-sm text-cream">
-            <input
-              type="checkbox"
-              name="isAvailable"
-              defaultChecked
-              className="h-5 w-5 rounded border-char-line accent-ember"
-            />
+            <input type="checkbox" name="isAvailable" defaultChecked className="h-5 w-5 rounded border-char-line accent-ember" />
             متاح للطلب حالياً
           </label>
 
-          <button
-            type="submit"
-            className="mt-2 rounded-lg bg-ember py-3 font-body text-sm font-semibold text-cream shadow-pill transition-opacity hover:opacity-90"
-          >
+          <button type="submit" className="mt-2 rounded-lg bg-ember py-3 font-body text-sm font-semibold text-cream shadow-pill transition-opacity hover:opacity-90">
             حفظ الصنف
           </button>
         </form>
