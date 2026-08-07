@@ -16,7 +16,6 @@ export default function Header() {
           <Flame className="h-4 w-4" strokeWidth={2.5} />
         </div>
         <h1 className="font-display text-4xl font-extrabold tracking-tight text-cream drop-shadow-sm sm:text-5xl">مطعم الجواد</h1>
-        <p className="mx-auto mt-3 max-w-sm font-body text-sm italic leading-relaxed text-cream-muted sm:text-base">نكهات أصيلة من المطبخ العربي، تُحضّر بشغف وتُقدّم بحب — قائمتنا لهذا اليوم</p>
         <Ornament className="mx-auto mt-5 max-w-[220px]" />
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-body text-xs text-cream-muted sm:text-sm">
           <a href="tel:76029150" className="flex items-center gap-1.5 transition-colors hover:text-saffron">
